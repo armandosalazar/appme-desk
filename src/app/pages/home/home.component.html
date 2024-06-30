@@ -1,9 +1,18 @@
-<section class="w-full h-full">
-  <form (submit)="addItem($event, name.value, desc.value)">
-    <input #name type="text" placeholder="Enter a name" required />
+<div section class="w-full h-full">
+  <form
+    (submit)="addItem($event, name.value, desc.value)"
+    class="w-fit mx-auto"
+  >
+    <input
+      #name
+      type="text"
+      placeholder="Enter a name"
+      required
+      class="focus-visible:outline-none border border-blue-600 rounded-2xl py-1 px-4 text-blue-950 focus-visible:bg-blue-50 placeholder:text-black"
+    />
     <input #desc type="text" placeholder="Enter a description" required />
     <button
-      class="bg-purple-400 rounded-2xl py-1 px-4 text-purple-950"
+      class="bg-blue-400 rounded-2xl py-1 px-4 text-blue-50 font-semibold"
       type="submit"
     >
       Add
@@ -20,4 +29,4 @@
     </div>
     }
   </section>
-</section>
+</div>

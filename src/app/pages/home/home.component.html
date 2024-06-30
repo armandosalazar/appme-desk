@@ -1,3 +1,23 @@
-<p>home works!</p>
-<input type="text" #item placeholder="Enter a item" />
-<pre>{{ item.value }}</pre>
+<section class="w-full h-full">
+  <form (submit)="addItem($event, name.value, desc.value)">
+    <input #name type="text" placeholder="Enter a name" required />
+    <input #desc type="text" placeholder="Enter a description" required />
+    <button
+      class="bg-purple-400 rounded-2xl py-1 px-4 text-purple-950"
+      type="submit"
+    >
+      Add
+    </button>
+  </form>
+
+  <!-- add scroll only this article with tailwindcss -->
+  <!-- es necesario definir un alto para emplear el scroll en y -->
+  <section class="h-96 overflow-y-auto">
+    @for (item of items; track $index) {
+    <div>
+      <span>{{ item.name }} {{ item.date }}</span>
+      <span>{{ item.desc }}</span>
+    </div>
+    }
+  </section>
+</section>

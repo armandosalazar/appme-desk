@@ -1,14 +1,18 @@
-<div class="flex h-screen">
+<div class="flex flex-col h-screen">
   <!-- sidebar -->
-  <section class="w-52 h-screen border border-blue-100">
-    <a routerLink="/" class="block p-1 text-center text-slate-800">Home</a>
-    <a
-      routerLink="/settings"
-      class="block bg-slate-300 rounded-sm p-1 text-center text-slate-800"
-      >Settings</a
-    >
-  </section>
-  <router-outlet class="overflow-y-auto"></router-outlet>
+  <div class="flex flex-1">
+    <section class="w-52 h-full backdrop-blur-sm bg-white/30">
+      <a routerLink="/" class="block p-1 text-center text-slate-800">Home</a>
+      <a
+        routerLink="/settings"
+        class="block rounded-sm p-1 text-center text-slate-800"
+        >Settings</a
+      >
+    </section>
+    <div class="w-full">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
   <!-- <section class="flex-1">
     <form (submit)="addTask($event, taskInput.value)">
       <input #taskInput type="text" placeholder="Enter your task" />

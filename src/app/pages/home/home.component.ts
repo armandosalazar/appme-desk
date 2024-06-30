@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
-type Item = {
+interface Item {
   name: string;
-  description: string;
-};
+  desc: string;
+  date?: Date;
+}
 
 @Component({
   selector: 'app-home',
@@ -14,4 +15,9 @@ type Item = {
 })
 export class HomeComponent {
   public items: Item[] = [];
+
+  public addItem(evt: Event, name: string, desc: string) {
+    evt.preventDefault();
+    this.items.push({ name, desc, date: new Date() });
+  }
 }

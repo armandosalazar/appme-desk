@@ -4,7 +4,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { invoke } from '@tauri-apps/api/tauri';
 import { MenuItem } from 'primeng/api';
 import { PanelMenuModule } from 'primeng/panelmenu';
-import { RippleModule } from 'primeng/ripple';
+// import { RippleModule } from 'primeng/ripple';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +14,7 @@ import { RippleModule } from 'primeng/ripple';
     RouterOutlet,
     RouterLink,
     PanelMenuModule,
-    RippleModule,
+    // RippleModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -27,12 +27,18 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {
+        label: 'Dashboard',
+        icon: 'pi pi-fw pi-home',
+        route: '/',
+      },
+      {
         label: 'File',
         icon: 'pi pi-fw pi-file',
         items: [
           {
             label: 'New',
             icon: 'pi pi-fw pi-plus',
+            route: '/file/new',
             items: [
               {
                 label: 'Bookmark',
@@ -57,6 +63,11 @@ export class AppComponent implements OnInit {
       {
         label: 'Edit',
         icon: 'pi pi-fw pi-pencil',
+      },
+      {
+        label: 'Settings',
+        icon: 'pi pi-cog',
+        route: '/settings',
       },
     ];
   }

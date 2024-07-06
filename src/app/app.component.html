@@ -1,12 +1,31 @@
-<div styleClass="w-full md:w-20rem" class="w-56">
-  <h1 class="text-center p-4 text-xl font-bold text-blue-400">Appme Desk</h1>
-  <p-panelMenu [model]="items">
-    <ng-template pTemplate="item" let-item>
-      <a pRipple class="flex px-3 py-2 items-center border-black">
-        <i [class]="item.icon + ' text-blue-400'"></i>
-        <span class="ml-2">{{ item.label }}</span>
-      </a>
-    </ng-template>
-  </p-panelMenu>
+<div class="flex flex-1">
+  <div class="w-72 border-r border-r-slate-200 h-screen">
+    <h1 class="p-4 text-xl font-bold border-b border-b-slate-200">
+      Appme Desk
+    </h1>
+    <p-panelMenu [model]="items">
+      <ng-template pTemplate="item" let-item>
+        <ng-container *ngIf="item.route; else noLink">
+          <a [routerLink]="item.route" class="flex items-center px-3 py-2">
+            <i [class]="item.icon"></i>
+            <span class="ml-2">{{ item.label }}</span>
+          </a>
+        </ng-container>
+        <ng-template #noLink>
+          <span class="flex px-3 py-2 items-center">
+            <!-- <i [class]="item.icon + ' text-blue-400'"></i> -->
+            <i [class]="item.icon"></i>
+            <span class="ml-2">{{ item.label }}</span>
+            <i
+              *ngIf="item.items"
+              class="pi pi-angle-down text-primary ml-auto"
+            ></i>
+          </span>
+        </ng-template>
+      </ng-template>
+    </p-panelMenu>
+  </div>
+  <div class="w-full">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-<router-outlet></router-outlet>

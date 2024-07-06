@@ -1,24 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, importProvidersFrom, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { invoke } from '@tauri-apps/api/tauri';
-import { PrimeNGConfig } from 'primeng/api';
+import { Sidebar, SidebarModule } from 'primeng/sidebar';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    SidebarModule,
+    ButtonModule,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
-  constructor(private primengConfig: PrimeNGConfig) {}
+export class AppComponent {
+  @ViewChild('sidebarRef') sidebarRef!: Sidebar;
+  greetingMessage: string = '';
+  sidebarVisible: boolean = false;
 
-  ngOnInit(): void {
-    this.primengConfig.ripple = true;
+  closeCallback(evt: Event): void {
+    this.sidebarRef.close(evt);
   }
-
-  greetingMessage = '';
 
   addTask(evt: SubmitEvent, task: string): void {
     evt.preventDefault();

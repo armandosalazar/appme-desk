@@ -1,29 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { invoke } from "@tauri-apps/api/tauri";
+import { invoke } from '@tauri-apps/api/tauri';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
-export class AppComponent {
-  greetingMessage = "";
+export class AppComponent implements OnInit {
+  constructor(private primengConfig: PrimeNGConfig) {}
+
+  ngOnInit(): void {
+    this.primengConfig.ripple = true;
+  }
+
+  greetingMessage = '';
 
   addTask(evt: SubmitEvent, task: string): void {
     evt.preventDefault();
 
-    console.log("WORKS", task);
+    console.log('WORKS', task);
   }
 
   greet(event: SubmitEvent, name: string): void {
     event.preventDefault();
 
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    invoke<string>("greet", { name }).then((text) => {
+    invoke<string>('greet', { name }).then((text) => {
       this.greetingMessage = text;
     });
   }

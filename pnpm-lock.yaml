@@ -32,6 +32,9 @@ dependencies:
   '@tauri-apps/api':
     specifier: ^1
     version: 1.5.6
+  primeicons:
+    specifier: ^7.0.0
+    version: 7.0.0
   primeng:
     specifier: ^17.18.2
     version: 17.18.2(@angular/common@17.3.11)(@angular/core@17.3.11)(@angular/forms@17.3.11)(rxjs@7.8.1)(zone.js@0.14.7)
@@ -6247,6 +6250,10 @@ packages:
       picocolors: 1.0.1
       source-map-js: 1.2.0
     dev: true
+
+  /primeicons@7.0.0:
+    resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
+    dev: false
 
   /primeng@17.18.2(@angular/common@17.3.11)(@angular/core@17.3.11)(@angular/forms@17.3.11)(rxjs@7.8.1)(zone.js@0.14.7):
     resolution: {integrity: sha512-2uux//0AOj/EwiOQHmUVFst+9dtf4duNLI+Oo6vN3HLXoQF+Eax5Mfi5eHh+EDSJMFCrzeCUma0N2Nj5pNpSHg==}

@@ -1,5 +1,34 @@
 <div section class="w-full h-full">
-  <form
+  <div class="h-8"></div>
+  <form class="flex gap-3 w-10/12 bg-red-50 p-4">
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="pi pi-asterisk"></i>
+      </p-inputGroupAddon>
+      <input
+        type="text"
+        id="name"
+        pInputText
+        placeholder="Enter a name"
+        required
+      />
+    </p-inputGroup>
+    <p-inputGroup>
+      <p-inputGroupAddon>
+        <i class="pi pi-info"></i>
+      </p-inputGroupAddon>
+      <input
+        type="text"
+        id="name"
+        pInputText
+        placeholder="Enter a description"
+        required
+      />
+    </p-inputGroup>
+    <p-button type="submit" label="Add" />
+  </form>
+  <!-- <p-sidebar #sidebarRef [(visible)]="sidebarVisible"></p-sidebar> -->
+  <!-- <form
     (submit)="addItem($event, name.value, desc.value)"
     class="w-fit mx-auto"
   >
@@ -17,16 +46,16 @@
     >
       Add
     </button>
-  </form>
+  </form> -->
 
   <!-- add scroll only this article with tailwindcss -->
   <!-- es necesario definir un alto para emplear el scroll en y -->
-  <section class="h-96 overflow-y-auto">
+  <!-- <section class="h-96 overflow-y-auto">
     @for (item of items; track $index) {
     <div>
       <span>{{ item.name }} {{ item.date }}</span>
       <span>{{ item.desc }}</span>
     </div>
     }
-  </section>
+  </section> -->
 </div>

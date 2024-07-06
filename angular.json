@@ -21,7 +21,11 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": ["src/assets"],
-            "styles": ["src/styles.css"]
+            "styles": [
+              "src/styles.css",
+              "node_modules/primeng/resources/themes/aura-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.css"
+            ]
           },
           "configurations": {
             "production": {

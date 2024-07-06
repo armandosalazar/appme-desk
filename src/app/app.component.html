@@ -1,3 +1,12 @@
-<p-sidebar #sidebarRef [(visible)]="sidebarVisible"></p-sidebar>
-<p-button (click)="sidebarVisible = true" icon="pi pi-arrow-right"></p-button>
+<div styleClass="w-full md:w-20rem" class="w-56">
+  <h1 class="text-center p-4 text-xl font-bold text-blue-400">Appme Desk</h1>
+  <p-panelMenu [model]="items">
+    <ng-template pTemplate="item" let-item>
+      <a pRipple class="flex px-3 py-2 items-center border-black">
+        <i [class]="item.icon + ' text-blue-400'"></i>
+        <span class="ml-2">{{ item.label }}</span>
+      </a>
+    </ng-template>
+  </p-panelMenu>
+</div>
 <router-outlet></router-outlet>

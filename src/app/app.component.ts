@@ -1,9 +1,10 @@
-import { Component, importProvidersFrom, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { invoke } from '@tauri-apps/api/tauri';
-import { Sidebar, SidebarModule } from 'primeng/sidebar';
-import { ButtonModule } from 'primeng/button';
+import { MenuItem } from 'primeng/api';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { RippleModule } from 'primeng/ripple';
 
 @Component({
   selector: 'app-root',
@@ -12,19 +13,52 @@ import { ButtonModule } from 'primeng/button';
     CommonModule,
     RouterOutlet,
     RouterLink,
-    SidebarModule,
-    ButtonModule,
+    PanelMenuModule,
+    RippleModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  encapsulation: ViewEncapsulation.None, // Remove encapsulation for global styles
 })
-export class AppComponent {
-  @ViewChild('sidebarRef') sidebarRef!: Sidebar;
+export class AppComponent implements OnInit {
   greetingMessage: string = '';
-  sidebarVisible: boolean = false;
+  items: MenuItem[] = [];
 
-  closeCallback(evt: Event): void {
-    this.sidebarRef.close(evt);
+  ngOnInit(): void {
+    this.items = [
+      {
+        label: 'File',
+        icon: 'pi pi-fw pi-file',
+        items: [
+          {
+            label: 'New',
+            icon: 'pi pi-fw pi-plus',
+            items: [
+              {
+                label: 'Bookmark',
+                icon: 'pi pi-fw pi-bookmark',
+              },
+              {
+                label: 'Video',
+                icon: 'pi pi-fw pi-video',
+              },
+            ],
+          },
+          {
+            label: 'Delete',
+            icon: 'pi pi-fw pi-trash',
+          },
+          {
+            label: 'Export',
+            icon: 'pi pi-fw pi-external-link',
+          },
+        ],
+      },
+      {
+        label: 'Edit',
+        icon: 'pi pi-fw pi-pencil',
+      },
+    ];
   }
 
   addTask(evt: SubmitEvent, task: string): void {

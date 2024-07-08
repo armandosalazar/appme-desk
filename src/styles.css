@@ -14,3 +14,12 @@
 html {
   font-size: 14px;
 }
+
+body,
+body .p-component {
+  font-family: 'Euclid Circular A', sans-serif;
+}
+
+pre {
+  font-family: 'Source Code Pro', monospace;
+}

@@ -1,1 +1,45 @@
-pan
+<div class="container p-4">
+    <form class="flex gap-4" (submit)="addSection($event, section.value)">
+        <!-- <p-floatLabel> -->
+        <input
+            pInputText
+            type="text"
+            name="name"
+            required
+            #section
+            placeholder="Enter a section"
+        />
+        <!-- <label for="input">Section</label> -->
+        <!-- </p-floatLabel> -->
+        <p-button label="Add section" type="submit" [rounded]="true" />
+    </form>
+    <form
+        [formGroup]="wordForm"
+        (ngSubmit)="onSubmitWordForm()"
+        class="flex gap-4 my-4 flex-wrap"
+    >
+        <input pInputText formControlName="word" placeholder="Enter a word" />
+        <input
+            pInputText
+            formControlName="meaning"
+            placeholder="Enter meaning"
+        />
+        <input
+            pInputText
+            formControlName="pronunciation"
+            placeholder="Enter pronunciation"
+        />
+        <p-button
+            label="Save"
+            [rounded]="true"
+            type="submit"
+            disabled="{{ wordForm.invalid }}"
+        />
+    </form>
+    <!-- <p-button label="Save" [rounded]="true" (click)="saveWordForm()" /> -->
+    <p>Forn Status: {{ wordForm.status }}</p>
+    @for (section of sections; track $index) {
+        <pre>{{ section }}</pre>
+    }
+    <p-button label="Get words" [rounded]="true" (click)="getWords()" />
+</div>

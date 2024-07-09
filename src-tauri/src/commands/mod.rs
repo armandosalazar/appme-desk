@@ -10,13 +10,13 @@ pub fn get_words() {
 
     let conn = &mut database::establish_connection();
 
-    let ws = words
-        .select(Word::as_select())
-        .load(conn)
-        .expect("Error loading words");
-    for wd in ws {
-        println!("{:?}", wd);
-    }
+    // let ws = words
+    //     .select(Word::as_select())
+    //     .load(conn)
+    //     .expect("Error loading words");
+    // for wd in ws {
+    //     println!("{:?}", wd);
+    // }
     println!("@Called get_words()")
 }
 

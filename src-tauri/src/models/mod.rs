@@ -20,7 +20,6 @@ pub struct Word {
     pub word: String,
     pub meaning: String,
     pub pronunciation: String,
-    pub created_at: Timestamp,
 }
 
 #[derive(Debug, Deserialize, Insertable)]
